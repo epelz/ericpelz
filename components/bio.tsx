@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styles from "./bio.module.css";
-import utilStyles from "../styles/utils.module.css";
+import styles from "@/components/bio.module.css";
+import utilStyles from "@/styles/utils.module.css";
 
 export default function Bio() {
   return (

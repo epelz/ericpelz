@@ -1,14 +1,13 @@
-import Layout, { siteTitle } from "../components/layout";
-import styles from "./page.module.css";
-import { Post, getSortedPostsData } from "../lib/posts";
+import Layout, { siteTitle } from "@/components/layout";
+import styles from "@/app/page.module.css";
+import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
-import Date from "../components/date";
-import Bio from "../components/bio";
-import PostSection from "../components/post_section";
+import Bio from "@/components/bio";
+import PostSection from "@/components/post_section";
 import { FaGithubAlt, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 // TODO: More of this can move to layout.tsx
-export default function Home({ params }: { params: {} }) {
+export default function Home({ params }: { params: Promise<{}> }) {
   const postsData = getSortedPostsData({ category: "highlight", limit: 3 });
 
   return (

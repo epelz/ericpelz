@@ -1,13 +1,7 @@
-import Layout, { siteTitle } from "../../../components/layout";
-import {
-  Post,
-  getSortedPostsData,
-  getAllCategoryIds,
-} from "../../../lib/posts";
-import { GetStaticProps, GetStaticPaths } from "next";
-import { ParsedUrlQuery } from "querystring";
-import Bio from "../../../components/bio";
-import PostSection from "../../../components/post_section";
+import Layout, { siteTitle } from "@/components/layout";
+import { getSortedPostsData, getAllCategoryIds } from "@/lib/posts";
+import Bio from "@/components/bio";
+import PostSection from "@/components/post_section";
 
 export async function generateStaticParams() {
   return getAllCategoryIds();

@@ -1,8 +1,8 @@
-import Layout, { siteTitle } from "../../../components/layout";
-import Date from "../../../components/date";
-import { getAllPostIds, getPostData } from "../../../lib/posts";
+import Layout, { siteTitle } from "@/components/layout";
+import Date from "@/components/date";
+import { getAllPostIds, getPostData } from "@/lib/posts";
 
-import utilStyles from "../../../styles/utils.module.css";
+import utilStyles from "@/styles/utils.module.css";
 
 export async function generateMetadata({
   params,

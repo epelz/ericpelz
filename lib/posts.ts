@@ -8,7 +8,7 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
-import { youtubeEmbed } from "./remark-youtube";
+import { youtubeEmbed } from "@/lib/remark-youtube";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 

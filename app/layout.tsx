@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "../styles/global.css";
+import "@/styles/global.css";
 import Typography from "typography";
 import GithubTheme from "typography-theme-github";
 import { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
-import { siteTitle } from "../components/layout";
+import { siteTitle } from "@/components/layout";
 
 // Syntax highlighting theme, for posts with code blocks
 import "highlight.js/styles/mono-blue.css";

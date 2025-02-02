@@ -1,8 +1,8 @@
-import utilStyles from "../styles/utils.module.css";
+import utilStyles from "@/styles/utils.module.css";
 import Link from "next/link";
-import Date from "./date";
+import Date from "@/components/date";
 import React from "react";
-import { Post } from "../lib/posts";
+import { Post } from "@/lib/posts";
 
 export default function PostSection({
   sectionTitle,
