@@ -8,7 +8,6 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
-import { youtubeEmbed } from "@/lib/remark-youtube";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -87,7 +86,6 @@ export async function getPostData(id: string): Promise<DetailedPost> {
   const processedContent = await remark()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(youtubeEmbed)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypeHighlight)
