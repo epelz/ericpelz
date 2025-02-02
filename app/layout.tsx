@@ -4,12 +4,13 @@ import Typography from "typography";
 import GithubTheme from "typography-theme-github";
 import { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
+import { siteTitle } from "../components/layout";
 
 // Syntax highlighting theme, for posts with code blocks
 import "highlight.js/styles/mono-blue.css";
 
 export const metadata: Metadata = {
-  title: "Eric Pelz",
+  title: siteTitle,
   description: "Eric Pelz is a software engineer",
   authors: { name: "Eric Pelz" },
   keywords:

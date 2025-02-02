@@ -1,10 +1,20 @@
-import Layout from "../../../components/layout";
-import { GetStaticProps, GetStaticPaths } from "next";
-import { ParsedUrlQuery } from "querystring";
+import Layout, { siteTitle } from "../../../components/layout";
 import Date from "../../../components/date";
-import { getAllPostIds, getPostData, DetailedPost } from "../../../lib/posts";
+import { getAllPostIds, getPostData } from "../../../lib/posts";
 
 import utilStyles from "../../../styles/utils.module.css";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const { title } = await getPostData(id);
+  return {
+    title: `${title} - ${siteTitle}`,
+  };
+}
 
 export async function generateStaticParams() {
   return getAllPostIds();
