@@ -1,6 +1,5 @@
-import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
-import styles from "./index.module.css";
+import styles from "./page.module.css";
 import { Post, getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
@@ -8,19 +7,10 @@ import Bio from "../components/bio";
 import PostSection from "../components/post_section";
 import { FaGithubAlt, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-export async function getStaticProps(): Promise<{
-  props: { postsData: Post[] };
-}> {
-  // Only show the most recent 3 highlighted posts
+// TODO: More of this can move to layout.tsx
+export default function Home({ params }: { params: {} }) {
   const postsData = getSortedPostsData({ category: "highlight", limit: 3 });
-  return {
-    props: {
-      postsData,
-    },
-  };
-}
 
-export default function Home({ postsData }: { postsData: Post[] }) {
   return (
     <Layout home title={siteTitle}>
       <Bio />

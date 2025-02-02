@@ -115,15 +115,13 @@ export function getAllPostIds(): { params: { id: string } }[] {
   });
 }
 
-export function getAllCategoryIds(): { params: { category: string } }[] {
+export function getAllCategoryIds(): { category: string }[] {
   // NB: Not the most efficient, since we're parsing all markdown here, but I don't post that often.
   return Array.from(
     new Set(getSortedPostsData().flatMap((post) => post.categories))
   ).map((category) => {
     return {
-      params: {
-        category,
-      },
+      category,
     };
   });
 }
