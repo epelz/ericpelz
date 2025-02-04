@@ -3,10 +3,9 @@ import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
 import Bio from "@/components/bio";
 import PostSection from "@/components/post_section";
-import { FaGithubAlt, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 import classNames from "classnames";
 
-// TODO: More of this can move to layout.tsx
 export default function Home({ params }: { params: Promise<{}> }) {
   const postsData = getSortedPostsData({ category: "highlight", limit: 3 });
 
@@ -15,33 +14,7 @@ export default function Home({ params }: { params: Promise<{}> }) {
       <Header home />
       <main>
         <Bio />
-        <section>
-          <h1
-            className={classNames(
-              // Container
-              "flex",
-              "flex-row-reverse",
-              "mt-3",
-              "pb-2",
-              // Bottom border
-              "border-b-2",
-              "border-b-gray-100",
-              // Color for children icons
-              "*:hover:text-blue-600",
-              "*:text-gray-600",
-              "*:pr-1",
-              "*:drop-shadow-xs"
-            )}
-          >
-            <a href="https://www.github.com/epelz/">
-              <FaGithubAlt size="2em" />
-            </a>
-            <a href="https://www.linkedin.com/in/epelz/">
-              <FaLinkedin size="2em" />
-            </a>
-          </h1>
-        </section>
-
+        <SocialIconRow />
         <PostSection sectionTitle="Posts" postsData={postsData}>
           <span>
             See all{" "}
@@ -52,5 +25,34 @@ export default function Home({ params }: { params: Promise<{}> }) {
         </PostSection>
       </main>
     </>
+  );
+}
+
+function SocialIconRow() {
+  return (
+    <section
+      className={classNames(
+        // Container
+        "flex",
+        "flex-row-reverse",
+        "mt-3",
+        "pb-2",
+        // Bottom border
+        "border-b-2",
+        "border-b-gray-100",
+        // Color for children icons
+        "*:hover:text-blue-600",
+        "*:text-gray-600",
+        "*:pr-1",
+        "*:drop-shadow-xs"
+      )}
+    >
+      <a href="https://www.github.com/epelz/">
+        <FaGithubAlt size="2em" />
+      </a>
+      <a href="https://www.linkedin.com/in/epelz/">
+        <FaLinkedin size="2em" />
+      </a>
+    </section>
   );
 }
