@@ -1,4 +1,3 @@
-import utilStyles from "@/styles/utils.module.css";
 import Link from "next/link";
 import Date from "@/components/date";
 import React from "react";
@@ -14,15 +13,15 @@ export default function PostSection({
   children?: React.ReactNode;
 }) {
   return (
-    <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+    <section>
       <>
-        <h2 className={utilStyles.headingLg}>{sectionTitle}</h2>
-        <ul className={utilStyles.list}>
+        <h2 className="text-2xl font-semibold my-4">{sectionTitle}</h2>
+        <ul className="text-lg">
           {postsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className="mb-5" key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className="text-gray-700">
                 <Date dateString={date} />
               </small>
             </li>

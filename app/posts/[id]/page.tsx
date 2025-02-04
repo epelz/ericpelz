@@ -1,8 +1,7 @@
 import Layout, { siteTitle } from "@/components/layout";
 import Date from "@/components/date";
 import { getAllPostIds, getPostData } from "@/lib/posts";
-
-import utilStyles from "@/styles/utils.module.css";
+import classNames from "classnames";
 
 export async function generateMetadata({
   params,
@@ -30,9 +29,27 @@ export default async function Post({
 
   return (
     <Layout bioOnFooter title={postData.title || "Eric Pelz"}>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+      <article
+        className={classNames(
+          "prose",
+          "max-w-none",
+          // Style headings
+          "prose-headings:font-semibold",
+          "prose-h1:border-b-2",
+          "prose-h1:border-b-gray-100",
+          // Override to make certain elements more compact
+          "prose-headings:mt-2",
+          "prose-headings:mb-3",
+          "prose-p:my-3",
+          "prose-hr:my-0",
+          // Override links to match rest of site
+          "prose-a:text-blue-800",
+          "prose-a:no-underline",
+          "prose-a:hover:underline"
+        )}
+      >
+        <h1>{postData.title}</h1>
+        <div>
           {/* If this was co-authored, add the full set of authors to the top. */}
           {(postData.otherAuthors || []).length > 0
             ? ["Eric Pelz", ...postData.otherAuthors].join(", ") + " - "

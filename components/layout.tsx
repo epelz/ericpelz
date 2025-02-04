@@ -1,5 +1,3 @@
-import styles from "@/components/layout.module.css";
-import utilStyles from "@/styles/utils.module.css";
 import Link from "next/link";
 import Bio from "@/components/bio";
 import React from "react";
@@ -19,29 +17,26 @@ export default function Layout({
   title: string;
 }) {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        {home ? (
-          <h1 className={utilStyles.heading2Xl}>{name}</h1>
-        ) : (
-          <h2 className={styles.titleNotHome}>
-            <Link href="/" className={utilStyles.colorInherit}>
+    <div className="max-w-2xl px-1 py-0 mx-auto mt-6 mb-12">
+      <header>
+        <h1 className="text-5xl font-semibold my-4 pb-1 border-b-2 border-b-gray-100">
+          {home ? (
+            name
+          ) : (
+            <Link className="text-inherit" href="/">
               {name}
             </Link>
-          </h2>
-        )}
+          )}
+        </h1>
       </header>
       <main>{children}</main>
       <>
-        {bioOnFooter && (
-          <>
-            <h1></h1>
-            <Bio />
-          </>
-        )}
         {!home && (
-          <div className={styles.backToHome}>
-            <Link href="/">← Back to home</Link>
+          <div className="pt-2 border-t-2 border-t-gray-100">
+            <Bio />
+            <div className="pt-2">
+              <Link href="/">← Back to home</Link>
+            </div>
           </div>
         )}
       </>

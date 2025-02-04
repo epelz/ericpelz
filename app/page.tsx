@@ -1,10 +1,10 @@
 import Layout, { siteTitle } from "@/components/layout";
-import styles from "@/app/page.module.css";
 import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
 import Bio from "@/components/bio";
 import PostSection from "@/components/post_section";
 import { FaGithubAlt, FaLinkedin, FaTwitter } from "react-icons/fa";
+import classNames from "classnames";
 
 // TODO: More of this can move to layout.tsx
 export default function Home({ params }: { params: Promise<{}> }) {
@@ -14,25 +14,38 @@ export default function Home({ params }: { params: Promise<{}> }) {
     <Layout home title={siteTitle}>
       <Bio />
       <section>
-        <h1 className={styles.iconRow}>
-          <a className={styles.socialIcon} href="https://www.github.com/epelz/">
-            <FaGithubAlt />
+        <h1
+          className={classNames(
+            // Container
+            "flex",
+            "flex-row-reverse",
+            "mt-3",
+            "pb-2",
+            // Bottom border
+            "border-b-2",
+            "border-b-gray-100",
+            // Color for children icons
+            "*:hover:text-blue-600",
+            "*:text-gray-600",
+            "*:pr-1",
+            "*:drop-shadow-xs"
+          )}
+        >
+          <a href="https://www.github.com/epelz/">
+            <FaGithubAlt size="2em" />
           </a>
-          <a
-            className={styles.socialIcon}
-            href="https://www.linkedin.com/in/epelz/"
-          >
-            <FaLinkedin />
+          <a href="https://www.linkedin.com/in/epelz/">
+            <FaLinkedin size="2em" />
           </a>
         </h1>
       </section>
 
       <PostSection sectionTitle="Posts" postsData={postsData}>
-        <small>
+        <span>
           See all <Link href="/categories/engineering">engineering posts</Link>.
           I also like to cook, and{" "}
           <Link href="/categories/food">occasionally</Link> post recipes.
-        </small>
+        </span>
       </PostSection>
     </Layout>
   );

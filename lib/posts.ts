@@ -6,7 +6,6 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
-import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -88,7 +87,6 @@ export async function getPostData(id: string): Promise<DetailedPost> {
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
-    .use(rehypeHighlight)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(matterResult.content);
   const contentHtml = processedContent.toString();

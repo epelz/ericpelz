@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import "@/styles/global.css";
-import Typography from "typography";
-import GithubTheme from "typography-theme-github";
 import { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 import { siteTitle } from "@/components/layout";
 
-// Syntax highlighting theme, for posts with code blocks
-import "highlight.js/styles/mono-blue.css";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: siteTitle,
@@ -19,20 +15,6 @@ export const metadata: Metadata = {
   // TODO: Opengraph, Twitter
 };
 
-//// Typography
-// TODO: This is broken!
-// Copied from Gatsby blog: inject styles from Typography
-// GithubTheme.overrideThemeStyles = () => {
-//   return {
-//     h2: {
-//       borderBottom: `none`,
-//     },
-//   };
-// };
-// delete GithubTheme.googleFonts;
-// const typography = new Typography(GithubTheme);
-// typography.injectStyles();
-
 export default function RootLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
@@ -41,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="font-sans">
       <body>
         {children}
         <Analytics />

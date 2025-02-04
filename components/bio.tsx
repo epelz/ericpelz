@@ -1,15 +1,13 @@
 import Image from "next/image";
-import styles from "@/components/bio.module.css";
-import utilStyles from "@/styles/utils.module.css";
 
 export default function Bio() {
   return (
-    <section className={`${utilStyles.headingMd} ${styles.bio}`}>
-      <span className={styles.avatar}>
+    <section className="flex text-xl">
+      <span className="mr-3">
         <Image
           priority
           src="/images/profile.jpg"
-          className={utilStyles.borderCircle}
+          className="rounded-full"
           height={50}
           width={50}
           alt=""

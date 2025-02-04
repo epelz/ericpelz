@@ -20,8 +20,6 @@ export default async function Category({
 
   return (
     <Layout title={siteTitle}>
-      <Bio />
-
       <PostSection sectionTitle={sectionTitle} postsData={postsData} />
     </Layout>
   );
