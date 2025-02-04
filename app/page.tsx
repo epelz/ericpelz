@@ -1,4 +1,4 @@
-import Layout, { siteTitle } from "@/components/layout";
+import Header from "@/components/header";
 import { getSortedPostsData } from "@/lib/posts";
 import Link from "next/link";
 import Bio from "@/components/bio";
@@ -11,42 +11,46 @@ export default function Home({ params }: { params: Promise<{}> }) {
   const postsData = getSortedPostsData({ category: "highlight", limit: 3 });
 
   return (
-    <Layout home title={siteTitle}>
-      <Bio />
-      <section>
-        <h1
-          className={classNames(
-            // Container
-            "flex",
-            "flex-row-reverse",
-            "mt-3",
-            "pb-2",
-            // Bottom border
-            "border-b-2",
-            "border-b-gray-100",
-            // Color for children icons
-            "*:hover:text-blue-600",
-            "*:text-gray-600",
-            "*:pr-1",
-            "*:drop-shadow-xs"
-          )}
-        >
-          <a href="https://www.github.com/epelz/">
-            <FaGithubAlt size="2em" />
-          </a>
-          <a href="https://www.linkedin.com/in/epelz/">
-            <FaLinkedin size="2em" />
-          </a>
-        </h1>
-      </section>
+    <>
+      <Header home />
+      <main>
+        <Bio />
+        <section>
+          <h1
+            className={classNames(
+              // Container
+              "flex",
+              "flex-row-reverse",
+              "mt-3",
+              "pb-2",
+              // Bottom border
+              "border-b-2",
+              "border-b-gray-100",
+              // Color for children icons
+              "*:hover:text-blue-600",
+              "*:text-gray-600",
+              "*:pr-1",
+              "*:drop-shadow-xs"
+            )}
+          >
+            <a href="https://www.github.com/epelz/">
+              <FaGithubAlt size="2em" />
+            </a>
+            <a href="https://www.linkedin.com/in/epelz/">
+              <FaLinkedin size="2em" />
+            </a>
+          </h1>
+        </section>
 
-      <PostSection sectionTitle="Posts" postsData={postsData}>
-        <span>
-          See all <Link href="/categories/engineering">engineering posts</Link>.
-          I also like to cook, and{" "}
-          <Link href="/categories/food">occasionally</Link> post recipes.
-        </span>
-      </PostSection>
-    </Layout>
+        <PostSection sectionTitle="Posts" postsData={postsData}>
+          <span>
+            See all{" "}
+            <Link href="/categories/engineering">engineering posts</Link>. I
+            also like to cook, and{" "}
+            <Link href="/categories/food">occasionally</Link> post recipes.
+          </span>
+        </PostSection>
+      </main>
+    </>
   );
 }

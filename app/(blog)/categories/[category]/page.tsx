@@ -1,6 +1,4 @@
-import Layout, { siteTitle } from "@/components/layout";
 import { getSortedPostsData, getAllCategoryIds } from "@/lib/posts";
-import Bio from "@/components/bio";
 import PostSection from "@/components/post_section";
 
 export async function generateStaticParams() {
@@ -18,9 +16,5 @@ export default async function Category({
   const sectionTitle =
     category === "highlight" ? "Top blog posts" : `Posts about ${category}`;
 
-  return (
-    <Layout title={siteTitle}>
-      <PostSection sectionTitle={sectionTitle} postsData={postsData} />
-    </Layout>
-  );
+  return <PostSection sectionTitle={sectionTitle} postsData={postsData} />;
 }

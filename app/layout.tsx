@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
-import { siteTitle } from "@/components/layout";
+import { siteTitle } from "@/components/header";
 
 import "@/app/globals.css";
 
@@ -16,8 +15,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
   children,
 }: {
   children: React.ReactNode;
@@ -25,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="font-sans">
       <body>
-        {children}
+        <div className="max-w-2xl px-1 py-0 mx-auto mt-6 mb-12">{children}</div>
         <Analytics />
       </body>
     </html>
