@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  a {
+    @apply text-blue-800;
+    @apply hover:underline;
+  }
+  .prose {
+    @apply prose-a:text-blue-800;
+  }
+}

@@ -6,9 +6,7 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
-import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
-import { youtubeEmbed } from "./remark-youtube";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -87,10 +85,8 @@ export async function getPostData(id: string): Promise<DetailedPost> {
   const processedContent = await remark()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(youtubeEmbed)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
-    .use(rehypeHighlight)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
@@ -115,15 +111,13 @@ export function getAllPostIds(): { params: { id: string } }[] {
   });
 }
 
-export function getAllCategoryIds(): { params: { category: string } }[] {
+export function getAllCategoryIds(): { category: string }[] {
   // NB: Not the most efficient, since we're parsing all markdown here, but I don't post that often.
   return Array.from(
     new Set(getSortedPostsData().flatMap((post) => post.categories))
   ).map((category) => {
     return {
-      params: {
-        category,
-      },
+      category,
     };
   });
 }

@@ -9,4 +9,4 @@ I was thrilled to chat with [Federico Torreti](https://www.linkedin.com/in/ftorr
 
 Here's a recording:
 
-![video](https://www.youtube.com/watch?v=RPep0WvE-70)
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RPep0WvE-70" frameborder="0" allowfullscreen></iframe>

@@ -40,6 +40,7 @@ All development teams at Asana have a single **Engineering Manager (EM)**, who i
 Most programs at Asana also have a separate **Tech Lead (TL)**, who is an[^2] IC on the team (and reports to the Engineering Manager), and is accountable for program-level technical leadership. When teams do not have a separate TL, the EM acts in this capacity (often called a Tech Lead Manager – “TLM”)[^3].
 
 [^2]: Asana believes we’ll have better outcomes when decisions and strategic choices are made by people who are closest to the code/product, and that having a single person accountable for technical leadership (as opposed to a rotating responsibility) will let teams have a stronger focus on [technical strategy](#technical-strategy-technical-leadership) and partnering on the [roadmap](#roadmap-feasibility--execution-technical-leadership).
+
 [^3]: Tech Lead Manager (TLM) can work well for some teams, such as small teams (< 4 engineers), a TL transitioning to management, or teams with many experienced ICs acting as mini-TLs. However, it can also lead to the TLM becoming spread too thin to develop either as a manager or as an engineer, and become a bottleneck for the team. For these reasons, it’s rarely been a long-term stable staffing solution.
 
 This division enables those roles to specialize their skills and give different areas sustained attention:
