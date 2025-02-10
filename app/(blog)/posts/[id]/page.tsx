@@ -16,7 +16,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return getAllPostIds();
+  return getAllPostIds().map((id) => ({ id }));
 }
 
 export default async function Post({

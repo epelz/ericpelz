@@ -2,7 +2,7 @@ import { getSortedPostsData, getAllCategoryIds } from "@/lib/posts";
 import PostSection from "@/components/post_section";
 
 export async function generateStaticParams() {
-  return getAllCategoryIds();
+  return getAllCategoryIds().map((category) => ({ category }));
 }
 
 export default async function Category({
