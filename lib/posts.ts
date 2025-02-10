@@ -101,23 +101,13 @@ export async function getPostData(id: string): Promise<DetailedPost> {
   };
 }
 
-export function getAllPostIds(): { params: { id: string } }[] {
-  return getFileNames().map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
-    };
-  });
+export function getAllPostIds(): string[] {
+  return getFileNames().map((fileName) => fileName.replace(/\.md$/, ""));
 }
 
-export function getAllCategoryIds(): { category: string }[] {
+export function getAllCategoryIds(): string[] {
   // NB: Not the most efficient, since we're parsing all markdown here, but I don't post that often.
   return Array.from(
     new Set(getSortedPostsData().flatMap((post) => post.categories))
-  ).map((category) => {
-    return {
-      category,
-    };
-  });
+  );
 }
